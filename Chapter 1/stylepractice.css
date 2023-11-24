@@ -22,8 +22,20 @@
     border-width: 1px;
 }
 
+/* body */
 
+#main {
+    width: 800px;
+    margin: 0 auto;
+}
 
+.item-title{
+    font-size: 32px;
+    font-weight: bold;
+}
+.item-image {
+    width: 100%;
+}
 /* footer tag */
 footer {
     text-align: center;
