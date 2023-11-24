@@ -1,0 +1,66 @@
+
+* {
+    background-color: whitesmoke;
+}
+div {
+    background-color: blue;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+table {
+    border: 1px solid #000;
+    border-width: 3px;
+    background-color: rgb(80, 114, 132);
+    margin: 5px auto;
+    color: navy;
+}
+tr, td, th {
+    padding: 10px;
+    margin: 5px auto;
+    text-align: center;
+}
+
+/* border-style の例示用クラス */
+.b1 {border-style:solid;}
+.b2 {border-style:hidden;}
+.b3 {border-style:dotted;}
+.b4 {border-style:dashed;}
+.b5 {border-style:solid;}
+.b6 {border-style:hidden;}
+.b7 {border-style:groove;}
+.b8 {border-style:ridge;}
+.b9 {border-style:solid;}
+.b10 {border-style:outset;}
+.b11 {border-style:inset;}
+.b12 {border-style:none;}
+
+img {
+    width: 50%;
+    height: max-content;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed; 
+    top: 10px;
+    left: 160px;
+    color: black;
+    z-index: 10;
+    padding: 10% 30%;
+    background-color: aqua;
+}
+
+.foreign-country {
+    color: blue;
+}
+
+#japan {
+    color: red;
+}

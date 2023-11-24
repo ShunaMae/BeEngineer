@@ -1,0 +1,30 @@
+
+* {
+    background-color: whitesmoke;
+    box-sizing: border-box;
+}
+
+/* header */
+.header-image {
+    /* full on the screen */
+    width: 100%;
+}
+.nav{
+    text-align: center;
+}
+.nav-item {
+    display: inline-block;
+    width: 50%;
+    font-size: 32px;
+    font-weight: bold;
+    border-style: solid;
+    border-color: rgb(0,0,0);
+    border-width: 1px;
+}
+
+
+
+/* footer tag */
+footer {
+    text-align: center;
+}
