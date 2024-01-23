@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Polls application </title>
+    </head>
+
+    <body>
+        <h1>Result</h1>
+        <h2> hi </h2>
+
+        {% for question, answer in question_dict.items %}  
+            <h3>Q {{ question }} </h3>
+
+            {% if answer %}  
+                <p>Many people voted for this.</p>
+            {% else %}
+                <p>Not many people voted for this.</p>
+            {% endif %}  
+
+
+        {% endfor %} 
+
+        <a href="{% url 'index' %}">Return</a>
+
+    </body>
+</html>
