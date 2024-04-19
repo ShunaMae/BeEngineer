@@ -6,19 +6,17 @@
     </head>
 
     <body>
-        <h1>Polls</h1>
-        <h2>Polls index page</h2>
+        {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+            <li>
+                <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+            </li>
+            {% endfor %}
+        </ul>
 
-        {% for question in question_list %}
-            <p>Q. {{question}}</p>
-        {% endfor %}
-
-        {% if is_polled %}
-            <p>{{polled_msg}}</p>
         {% else %}
-            <p>{{not_polled_msg}}</p>
+        <p>No polls are available</p>
         {% endif %}
-
-        <a href="{% url 'result' %}">Result</a>
     </body>
 </html>

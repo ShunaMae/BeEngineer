@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+
+{% block content %}
+<ul>
+    <div class="btns">
+        <a href="{% url 'login' %}" class="btn">log in</a>
+        <a href="{% url 'signup' %}" class="btn">sign up</a>
+    </div>
+
+</ul>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}
+

@@ -1,32 +1,48 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import  HttpResponse
+from .models import Question, Choice
 
 def index(request):
-    question_list = [
-        "Do you like programming?",
-        "Do you like math?",
-        "Do you like Japanese?",
-    ]
-
+    latest_question_list = Question.objects.order_by("-pub_date")[:5]
     context = {
-        "question_list": question_list,
-        "is_polled": True,
-        "polled_msg": "Thank you for voting.",
-        "not_polled_msg": "You haven't voted yet",
-
+        "latest_question_list": latest_question_list,
     }
-
     return render(request, "polls/index.html", context)
 
-def result(request):
-    question_dict = {
-        "Do you like programming?": True,
-        "Do you like math?" : True,
-        "Do you like Japanese?" : True
-        }
+
+
+
+
+def detail(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
     
     context = {
-        "question_dict": question_dict
+        "question": question,
     }
 
-    return render(request, "polls/result.html", context)
+    return render(request, "polls/detail.html", context)
+
+def results(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    context = {
+        "question": question
+    }
+    return render(request, "polls/results.html", context)
+
+def vote(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+
+    try:
+        selected_choice = question.choice_set.get(pk=request.POST["choice"])
+    except (KeyError, Choice.DoesNotExist):
+        return render(request, "polls/detail.html", context = {
+            "question": question,
+            "error_message": "You have not voted yet."
+        })
+    else:
+        selected_choice.votes += 1 
+        selected_choice.save()
+
+        return redirect('polls:results', question.id)
+
+

@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block header_title %}Friends List{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'main/css/friends.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="friends">
+    <ul class="friends-list">
+        {% for friend in friends %}
+        <li class="friends-list__item">
+            <a href="{% url 'talk_room' friend.id %}" class="friends-list__link">
+                <div class="friends-list__username">
+                    {{ friend.username }}
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
+

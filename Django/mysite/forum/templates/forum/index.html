@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        {%  load static %}
+        <meta charset="UTF-8">
+        <title> Forum</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'forum/css/index.css' %}" />
+        <!--pyton manage.py runserver-->
+        <!--http://127.0.0.1:8000/forum/-->
+    </head>
+
+    <body>
+        {% if topic_list %}
+        {% for topic in topic_list %}
+        <ul>
+            <a href="{% url 'forum:forum' topic.name %}">{{topic.name}}</a>
+        </ul>
+        {% endfor %}
+        {% endif %}
+        
+    </body>
+
